@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 
 [CustomEditor(typeof(MapObjectGenerator))]
-public class MapGenerator : Editor
+public class MapGeneratorButtonHelper : Editor
 {
     public override void OnInspectorGUI()
     {
