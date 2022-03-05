@@ -2,25 +2,38 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 [RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(PositionHelper))]
 public class MapObjectGenerator : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> rocks = null;
-    [SerializeField]
-    private List<GameObject> trees = null;
-    [SerializeField]
-    private int maxTrees;
-    [SerializeField]
-    private int maxRocks;
+    private List<EnvironmentObject> environmentObjects;
 
+    private PositionHelper positionHelper;
+
+
+    internal void Initialize()
+    {
+        if (positionHelper == null)
+        {
+            positionHelper = gameObject.GetComponent<PositionHelper>();
+        }
+        positionHelper.Initialize(new List<Vector3>(gameObject.GetComponent<MeshFilter>().sharedMesh.vertices));
+    }
 
     internal void GenerateMap()
     {
-        SpawnObjects(trees, maxTrees, true);
-        SpawnObjects(rocks, maxRocks);
+        ClearConsole();
+        foreach (var environmentObject in environmentObjects)
+        {
+            SpawnObjects(environmentObject);
+        }
+
+        Debug.Log(CountDecendants(transform) + " Objects generated");
     }
+
 
     internal void DeleteObjects()
     {
@@ -31,23 +44,71 @@ public class MapObjectGenerator : MonoBehaviour
         }
     }
 
-    private void SpawnObjects(List<GameObject> gameObjects, int amount, bool randomRotation = false)
+    private void SpawnObjects(EnvironmentObject environmentObject)
     {
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < environmentObject.maxAmount; i++)
         {
-            GameObject prefab = GetRandomObject(gameObjects);
-            GameObject spawned = Instantiate(prefab,
-                                             GetRandomPointOnGround(),
-                                             prefab.transform.localRotation,
-                                             gameObject.transform);
-            spawned.transform.localScale = Vector3.one;
-            if (randomRotation)
+            GameObject prefab = GetRandomObject(environmentObject.prefab);
+            GameObject spawned;
+
+            spawned = SpawnObject(prefab,
+                      positionHelper.GetRandomPointOnGround(environmentObject.minSpaceDistance),
+                      environmentObject.randomRotation,
+                      gameObject.transform);
+            if (environmentObject.maxGroupAmount > 0)
             {
-                spawned.transform.eulerAngles = new Vector3(spawned.transform.rotation.eulerAngles.x,
-                                                            Random.Range(1f, 180f),
-                                                            spawned.transform.rotation.eulerAngles.z);
+                int groupAmount = Random.Range(environmentObject.minGroupAmount, environmentObject.maxGroupAmount);
+
+                for (int y = 0; y < groupAmount; y++)
+                {
+                    GameObject childSpawn = SpawnObject(GetRandomObject(environmentObject.prefab),
+                                                        positionHelper.GetRandomPositionAround(spawned.transform.position, environmentObject.minSpaceDistance, environmentObject.maxSpaceDistance),
+                                                        environmentObject.randomRotation,
+                                                        spawned.transform);
+                    i++;
+
+                    DestroyIfNotOnGround(childSpawn);
+                    if (i == environmentObject.maxAmount)
+                        return;
+
+                }
             }
+
         }
+    }
+
+    private static void DestroyIfNotOnGround(GameObject childSpawn)
+    {
+        LayerMask mask = LayerMask.GetMask("Ground");
+        Vector3 rayCastPosition = childSpawn.transform.position;
+        rayCastPosition.y = 0.1f;
+        if (!Physics.Raycast(rayCastPosition, Vector3.down, 4f, mask))
+        {
+            DestroyImmediate(childSpawn);
+        }
+    }
+
+    private GameObject SpawnObject(GameObject prefab, Vector3 position, bool rotation, Transform parent)
+    {
+        GameObject spawned = Instantiate(prefab,
+                    position,
+                    prefab.transform.localRotation,
+                    parent);
+
+        spawned.transform.localScale = Vector3.one;
+        if (rotation)
+        {
+            RandomRotateObject(spawned);
+        }
+        return spawned;
+
+    }
+
+    private void RandomRotateObject(GameObject spawned)
+    {
+        spawned.transform.eulerAngles = new Vector3(spawned.transform.rotation.eulerAngles.x,
+                                                    Random.Range(1f, 180f),
+                                                    spawned.transform.rotation.eulerAngles.z);
     }
 
     private GameObject GetRandomObject(List<GameObject> list)
@@ -55,20 +116,23 @@ public class MapObjectGenerator : MonoBehaviour
         return list[Random.Range(0, list.Count)];
     }
 
-    private Vector3 GetRandomPointOnGround()
+
+    public static int CountDecendants(Transform transform)
     {
-        List<Vector3> VerticeList = new List<Vector3>(gameObject.GetComponent<MeshFilter>().sharedMesh.vertices);
-        Vector3 leftTop     = gameObject.transform.TransformPoint(VerticeList[0]);
-        Vector3 rightTop    = gameObject.transform.TransformPoint(VerticeList[10]);
-        Vector3 leftBottom  = gameObject.transform.TransformPoint(VerticeList[110]);
-        Vector3 rightBottom = gameObject.transform.TransformPoint(VerticeList[120]);
-        Vector3 XAxis = rightTop - leftTop;
-        Vector3 ZAxis = leftBottom - leftTop;
-        Vector3 position = leftTop + XAxis * Random.value + ZAxis * Random.value;
-        position.y = 0;
-        return position;
+        int childCount = transform.childCount;
+        foreach (Transform child in transform)
+        {
+            childCount += CountDecendants(child);
+        }
+        return childCount;
     }
 
-
+    private void ClearConsole()
+    {
+        var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
+        var type = assembly.GetType("UnityEditor.LogEntries");
+        var method = type.GetMethod("Clear");
+        method.Invoke(new object(), null);
+    }
 
 }

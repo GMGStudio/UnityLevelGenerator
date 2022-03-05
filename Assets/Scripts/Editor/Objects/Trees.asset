@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c43c22327a04d3ba9323b6276d9f65, type: 3}
+  m_Name: Trees
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 1963540573767361717, guid: ee506d98f750b49918c49c458fcb1c5f, type: 3}
+  - {fileID: 3623497970548363430, guid: 1ba8b8d60771a474a85a62743d911094, type: 3}
+  - {fileID: 7170972147678981255, guid: c0cdaf74db6ec4aeab850aabb73e5729, type: 3}
+  - {fileID: 7127128685017656292, guid: 1953ad65b4d4840a0ad4aed36255b3b8, type: 3}
+  - {fileID: 2718979316482656712, guid: 5681ddbf543bd42ae8a9497e6be8aa6d, type: 3}
+  - {fileID: 8726656785863120187, guid: f6481f48e5d284edaac8f2453e3de2f3, type: 3}
+  - {fileID: 7724938227701460448, guid: 15ee515147aad4643950cc5fdc67a0a2, type: 3}
+  - {fileID: 6153497551261471104, guid: f1967bf4243c541c4a50d91de699bb21, type: 3}
+  - {fileID: 6096505631084633225, guid: 7e329dda92a2d4d0bb90e2447ca16438, type: 3}
+  - {fileID: 8732068132358073425, guid: c138223abab234a1b92254b8574a2f02, type: 3}
+  - {fileID: 8503467864777458892, guid: 7dc7b3b4403f84c5db59452da4b680b0, type: 3}
+  - {fileID: 1694351436090491857, guid: eef7a0181e6ed42bbac875d00e4eaae6, type: 3}
+  maxAmount: 10000
+  randomRotation: 1
+  minGroupAmount: 0
+  maxGroupAmount: 100
+  minSpaceDistance: 2
+  maxSpaceDistance: 20

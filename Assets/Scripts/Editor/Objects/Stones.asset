@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c43c22327a04d3ba9323b6276d9f65, type: 3}
+  m_Name: Stones
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 188381122036034214, guid: 13e62befcc47848789124796e7ac45fb, type: 3}
+  - {fileID: 1976906194216970458, guid: dc9c096a1a11e4bacbde0c4ea41b1d63, type: 3}
+  - {fileID: 3554554060408245977, guid: 4e4759163dc1949bdb3ca017524f6b0b, type: 3}
+  - {fileID: 5467915561090630186, guid: ee03a038491de4c68a10d4e8121f1bda, type: 3}
+  - {fileID: 3975688163434022793, guid: 0a5133401b880472c80e5af8fae212da, type: 3}
+  - {fileID: 2487607791188808370, guid: cb47f7041382049a1b94348737d10da5, type: 3}
+  - {fileID: 4094518079531581683, guid: f52072c4d506e4b4a8ce72a333cc56ea, type: 3}
+  - {fileID: 542264108764858529, guid: 87d63777de2ae40c6a75c6ee5cafbc0b, type: 3}
+  - {fileID: 943080249270362217, guid: c071c7af5c0684060921f4d828cd65ac, type: 3}
+  - {fileID: 2721036232037579, guid: 03e3dd181f7384b61a3d21ca7cdb2443, type: 3}
+  - {fileID: 4419731112428331501, guid: 81bc9fe6877314733aefb1175162e257, type: 3}
+  - {fileID: 1026479211471045334, guid: 928600079cd6b42c191103c865264550, type: 3}
+  - {fileID: 5246908740053887960, guid: 93a9db9d29e0b442892108943fb99cde, type: 3}
+  - {fileID: 3630031718257976337, guid: f040396106ba44d7fa8a3fdf7cb3c3b3, type: 3}
+  - {fileID: 1628942233605633374, guid: 6fb301ead42f245e2860ad403978986d, type: 3}
+  - {fileID: 5437146638530226043, guid: e485487937fb642779d24535c31420fa, type: 3}
+  - {fileID: 876775599068086687, guid: a47548efc523c490f8fca1709f5bf62f, type: 3}
+  - {fileID: 8176944320594501619, guid: a2f7b95a3d79843d88d2525257000d3d, type: 3}
+  - {fileID: 8248198261945433403, guid: 34c2297ec7f5e4b8a85acb111b3e2bfc, type: 3}
+  - {fileID: 2387597899427089920, guid: 91abe137a812b47c6bcaeeb409a5d429, type: 3}
+  - {fileID: 8980389881088007170, guid: 0ff94f0e64d44467d9657ad264b885ed, type: 3}
+  - {fileID: 7715364257338329196, guid: 21650437053ad4d179ce715a5bb98ab3, type: 3}
+  - {fileID: 6675285097711488768, guid: 0b2fb8a366c8b4d2497e398fb0d4ed0c, type: 3}
+  - {fileID: 3421340511032641759, guid: 7b28ccfc569a046f083b11935f1bac05, type: 3}
+  - {fileID: 5933329387946155374, guid: e2a59332f63a04f3e8cff322eac5c6c7, type: 3}
+  - {fileID: 3160575227864696605, guid: 226055bb5c88e4f9f87eee9ef1be92f7, type: 3}
+  - {fileID: 5317576095704279337, guid: 762f33e99c0aa42acb154f3dd09d06b1, type: 3}
+  - {fileID: 6846494965180356965, guid: 152e3361474ef46e59016213bd7194de, type: 3}
+  - {fileID: 4994478569559448036, guid: 0d97a3267ed144ba0b69759dca485028, type: 3}
+  - {fileID: 3513731396871594779, guid: 6b7ee6859712549d8b9b6cb02a23f7d4, type: 3}
+  maxAmount: 1000
+  randomRotation: 0
+  minGroupAmount: 0
+  maxGroupAmount: 50
+  minSpaceDistance: 2
+  maxSpaceDistance: 5

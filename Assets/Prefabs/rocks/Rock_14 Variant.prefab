@@ -12,6 +12,10 @@ PrefabInstance:
       value: Rock_14 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 222aacc66726a5147b15e126dacb2b7a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 222aacc66726a5147b15e126dacb2b7a, type: 3}
       propertyPath: m_TagString
       value: Stones
       objectReference: {fileID: 0}
@@ -61,3 +65,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 222aacc66726a5147b15e126dacb2b7a, type: 3}
+--- !u!1 &8248198261945433403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 222aacc66726a5147b15e126dacb2b7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8248198261945531291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1149273090811288479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248198261945433403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03870732, y: 0.036219418, z: 0.021640465}
+  m_Center: {x: 0.0032522213, y: 0.006271132, z: -0.00082023424}
