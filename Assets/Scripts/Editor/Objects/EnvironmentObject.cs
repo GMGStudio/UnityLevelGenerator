@@ -6,12 +6,14 @@ using UnityEngine;
  
 public class EnvironmentObject : ScriptableObject
 {
-    public List<GameObject> prefab = null;
+    public List<GameObject> prefab;
     public int maxAmount;
     public bool randomRotation;
+
     [Header("Grouping")]
     public int minGroupAmount;
     public int maxGroupAmount;
+
     [Header("Spacing")]
     public int minSpaceDistance;
     public int maxSpaceDistance;

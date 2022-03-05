@@ -62,7 +62,9 @@ public class MapObjectGenerator : MonoBehaviour
                 for (int y = 0; y < groupAmount; y++)
                 {
                     GameObject childSpawn = SpawnObject(GetRandomObject(environmentObject.prefab),
-                                                        positionHelper.GetRandomPositionAround(spawned.transform.position, environmentObject.minSpaceDistance, environmentObject.maxSpaceDistance),
+                                                        positionHelper.GetRandomPositionAround(spawned.transform.position,
+                                                                                               environmentObject.minSpaceDistance,
+                                                                                               environmentObject.maxSpaceDistance),
                                                         environmentObject.randomRotation,
                                                         spawned.transform);
                     i++;
