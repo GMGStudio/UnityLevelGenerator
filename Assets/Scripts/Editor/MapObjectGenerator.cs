@@ -50,7 +50,7 @@ public class MapObjectGenerator : MonoBehaviour
         {
             GameObject prefab = GetRandomObject(environmentObject.prefab);
             GameObject spawned;
-
+            try { 
             spawned = SpawnObject(prefab,
                       positionHelper.GetRandomPointOnGround(environmentObject.minSpaceDistance),
                       environmentObject.randomRotation,
@@ -72,6 +72,11 @@ public class MapObjectGenerator : MonoBehaviour
                         return;
 
                 }
+            }
+            }
+            catch (NoFreePosition noFree)
+            {
+                Debug.Log(noFree.Message);
             }
 
         }

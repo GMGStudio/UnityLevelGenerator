@@ -25,7 +25,7 @@ MonoBehaviour:
   - {fileID: 8732068132358073425, guid: c138223abab234a1b92254b8574a2f02, type: 3}
   - {fileID: 8503467864777458892, guid: 7dc7b3b4403f84c5db59452da4b680b0, type: 3}
   - {fileID: 1694351436090491857, guid: eef7a0181e6ed42bbac875d00e4eaae6, type: 3}
-  maxAmount: 10000
+  maxAmount: 5000
   randomRotation: 1
   minGroupAmount: 0
   maxGroupAmount: 100

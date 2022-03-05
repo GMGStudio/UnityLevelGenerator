@@ -60,22 +60,8 @@ public class PositionHelper : MonoBehaviour
         if (checkAttemps == 200)
         {
             checkAttemps = 0;
-            return false;
+            throw new NoFreePosition("No more space");
         }
         return check;
-    }
-
-    private bool CheckGround(Vector3 position)
-    {
-        GroundcheckAttemps++;
-        LayerMask mask = LayerMask.GetMask("Ground");
-        if (GroundcheckAttemps == 10)
-        {
-            Debug.Log("Many attemps");
-            GroundcheckAttemps = 0;
-            return false;
-        }
-        return Physics.CheckSphere(position, 1f, mask);
-
     }
 }
