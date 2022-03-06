@@ -35,46 +35,38 @@ public class MapObjectGenerator : MonoBehaviour
     }
 
 
-    internal void DeleteObjects()
-    {
-        var tempList = transform.Cast<Transform>().ToList();
-        foreach (var child in tempList)
-        {
-            DestroyImmediate(child.gameObject);
-        }
-    }
-
     private void SpawnObjects(EnvironmentObject environmentObject)
     {
         for (int i = 0; i < environmentObject.maxAmount; i++)
         {
             GameObject prefab = GetRandomObject(environmentObject.prefab);
             GameObject spawned;
-            try { 
-            spawned = SpawnObject(prefab,
-                      positionHelper.GetRandomPointOnGround(environmentObject.minSpaceDistance),
-                      environmentObject.randomRotation,
-                      gameObject.transform);
-            if (environmentObject.maxGroupAmount > 0)
+            try
             {
-                int groupAmount = Random.Range(environmentObject.minGroupAmount, environmentObject.maxGroupAmount);
-
-                for (int y = 0; y < groupAmount; y++)
+                spawned = SpawnObject(prefab,
+                          positionHelper.GetRandomPointOnGround(environmentObject.minSpaceDistance),
+                          environmentObject.randomRotation,
+                          gameObject.transform);
+                if (environmentObject.maxGroupAmount > 0)
                 {
-                    GameObject childSpawn = SpawnObject(GetRandomObject(environmentObject.prefab),
-                                                        positionHelper.GetRandomPositionAround(spawned.transform.position,
-                                                                                               environmentObject.minSpaceDistance,
-                                                                                               environmentObject.maxSpaceDistance),
-                                                        environmentObject.randomRotation,
-                                                        spawned.transform);
-                    i++;
+                    int groupAmount = Random.Range(environmentObject.minGroupAmount, environmentObject.maxGroupAmount);
 
-                    DestroyIfNotOnGround(childSpawn);
-                    if (i == environmentObject.maxAmount)
-                        return;
+                    for (int y = 0; y < groupAmount; y++)
+                    {
+                        GameObject childSpawn = SpawnObject(GetRandomObject(environmentObject.prefab),
+                                                            positionHelper.GetRandomPositionAround(spawned.transform.position,
+                                                                                                   environmentObject.minSpaceDistance,
+                                                                                                   environmentObject.maxSpaceDistance),
+                                                            environmentObject.randomRotation,
+                                                            spawned.transform);
+                        i++;
 
+                        DestroyIfNotOnGround(childSpawn);
+                        if (i == environmentObject.maxAmount)
+                            return;
+
+                    }
                 }
-            }
             }
             catch (NoFreePosition noFree)
             {
@@ -110,6 +102,15 @@ public class MapObjectGenerator : MonoBehaviour
         return spawned;
 
     }
+    internal void DeleteObjects()
+    {
+        var tempList = transform.Cast<Transform>().ToList();
+        foreach (var child in tempList)
+        {
+            DestroyImmediate(child.gameObject);
+        }
+    }
+
 
     private void RandomRotateObject(GameObject spawned)
     {
