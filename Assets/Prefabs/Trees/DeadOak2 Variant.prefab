@@ -12,6 +12,10 @@ PrefabInstance:
       value: DeadOak2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fd250531dc14fb2428f12f928aa871ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fd250531dc14fb2428f12f928aa871ab, type: 3}
       propertyPath: m_TagString
       value: Trees
       objectReference: {fileID: 0}
@@ -61,3 +65,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd250531dc14fb2428f12f928aa871ab, type: 3}
+--- !u!1 &3623497970548363430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: fd250531dc14fb2428f12f928aa871ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 3623497970548463110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5734295470840857269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623497970548363430}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10343902, y: 0.10964651, z: 0.29889902}
+  m_Center: {x: 0.01480598, y: -0.00040369487, z: 0.13944952}

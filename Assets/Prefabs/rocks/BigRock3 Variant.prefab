@@ -12,6 +12,10 @@ PrefabInstance:
       value: BigRock3 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2a75046247a25e64c8e40eb5ec527286, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2a75046247a25e64c8e40eb5ec527286, type: 3}
       propertyPath: m_TagString
       value: Stones
       objectReference: {fileID: 0}
@@ -61,3 +65,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a75046247a25e64c8e40eb5ec527286, type: 3}
+--- !u!1 &3554554060408245977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 2a75046247a25e64c8e40eb5ec527286,
+    type: 3}
+  m_PrefabInstance: {fileID: 3554554060408342649}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &-8160546343434220407
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554554060408245977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.115148455, y: 0.092961915, z: 0.09421542}
+  m_Center: {x: 0.0014485642, y: 0.008101789, z: 0.013169619}

@@ -12,6 +12,10 @@ PrefabInstance:
       value: SpruceTree3 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 88ad23b6007a4b047a91bdc9f494ec12, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 88ad23b6007a4b047a91bdc9f494ec12, type: 3}
       propertyPath: m_TagString
       value: Trees
       objectReference: {fileID: 0}
@@ -61,3 +65,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad23b6007a4b047a91bdc9f494ec12, type: 3}
+--- !u!1 &1694351436090491857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 88ad23b6007a4b047a91bdc9f494ec12,
+    type: 3}
+  m_PrefabInstance: {fileID: 1694351436090525041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &-9132226672275433146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694351436090491857}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03518455, y: 0.030964773, z: 0.101981536}
+  m_Center: {x: -0.0002827961, y: -0.00039734886, z: 0.046403944}
