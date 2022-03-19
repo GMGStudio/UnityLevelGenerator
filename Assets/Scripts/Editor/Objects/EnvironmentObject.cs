@@ -9,6 +9,8 @@ public class EnvironmentObject : ScriptableObject
     public List<GameObject> prefab;
     public int maxAmount;
     public bool randomRotation;
+    [Range(0.1f,5)]
+    public float scaleMultiply = 1;
 
     [Header("Grouping")]
     public int minGroupAmount;
