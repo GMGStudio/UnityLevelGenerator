@@ -12,7 +12,7 @@ public class PositionHelper : MonoBehaviour
 
     internal void Initialize(List<Vector3> verticeList)
     {
-
+        Debug.Log("Vericies: " + verticeList.Count);
         Vector3 rightTop = gameObject.transform.TransformPoint(GetTopRight(verticeList));
         Vector3 leftBottom = gameObject.transform.TransformPoint(GetLeftBottom(verticeList));
         leftTop = gameObject.transform.TransformPoint(GetLeftTop(verticeList));
