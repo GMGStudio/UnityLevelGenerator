@@ -13,9 +13,9 @@ public class MapObjectGenerator : MonoBehaviour
 
     private PositionHelper positionHelper;
 
-
     internal void Initialize()
     {
+        ClearConsole();
         if (positionHelper == null)
         {
             positionHelper = gameObject.GetComponent<PositionHelper>();
@@ -25,7 +25,6 @@ public class MapObjectGenerator : MonoBehaviour
 
     internal void GenerateMap()
     {
-        ClearConsole();
         foreach (var environmentObject in environmentObjects)
         {
             SpawnObjects(environmentObject);
@@ -46,7 +45,8 @@ public class MapObjectGenerator : MonoBehaviour
                 spawned = SpawnObject(prefab,
                           positionHelper.GetRandomPointOnGround(environmentObject.minSpaceDistance),
                           environmentObject.randomRotation,
-                          gameObject.transform);
+                          gameObject.transform,
+                          environmentObject.scaleMultiply);
                 if (environmentObject.maxGroupAmount > 0)
                 {
                     int groupAmount = Random.Range(environmentObject.minGroupAmount, environmentObject.maxGroupAmount);
@@ -58,7 +58,8 @@ public class MapObjectGenerator : MonoBehaviour
                                                                                                    environmentObject.minSpaceDistance,
                                                                                                    environmentObject.maxSpaceDistance),
                                                             environmentObject.randomRotation,
-                                                            spawned.transform);
+                                                            spawned.transform,
+                                                            1);
                         i++;
 
                         DestroyIfNotOnGround(childSpawn);
@@ -76,25 +77,25 @@ public class MapObjectGenerator : MonoBehaviour
         }
     }
 
-    private static void DestroyIfNotOnGround(GameObject childSpawn)
+    private void DestroyIfNotOnGround(GameObject childSpawn)
     {
         LayerMask mask = LayerMask.GetMask("Ground");
         Vector3 rayCastPosition = childSpawn.transform.position;
-        rayCastPosition.y = 0.1f;
-        if (!Physics.Raycast(rayCastPosition, Vector3.down, 4f, mask))
+        rayCastPosition.y = 400;
+        if (!Physics.Raycast(rayCastPosition, Vector3.down, 500f, mask))
         {
             DestroyImmediate(childSpawn);
         }
     }
 
-    private GameObject SpawnObject(GameObject prefab, Vector3 position, bool rotation, Transform parent)
+    private GameObject SpawnObject(GameObject prefab, Vector3 position, bool rotation, Transform parent,float ObjectScaleMultiplyer)
     {
         GameObject spawned = Instantiate(prefab,
                     position,
                     prefab.transform.localRotation,
                     parent);
 
-        spawned.transform.localScale = Vector3.one;
+        spawned.transform.localScale = Vector3.one * ObjectScaleMultiplyer;
         if (rotation)
         {
             RandomRotateObject(spawned);
